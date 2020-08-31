@@ -1,4 +1,4 @@
-resolver: lts-14.27
+resolver: lts-16.11
 packages:
 - .
 extra-deps:
@@ -20,7 +20,7 @@ extra-deps:
 - constraints-extras-0.3.0.2@sha256:bf6884be65958e9188ae3c9e5547abfd6d201df021bff8a4704c2c4fe1e1ae5b,1784
 - kansas-comet-0.4@sha256:9316474b867e35576816422f71ee9983afc471dfced2f9a67fc1222349b0fee9,1737
 - patch-0.0.3.1@sha256:f14acf2eea8c83be57398106cec549c476577a947a7f856e6aa71dc561d58ca9,2308
-- witherable-class-0@sha256:91f05518f9f4af5b02424f13ee7dcdab5d6618e01346aa2f388a72ff93e2e501,775
 - monoidal-containers-0.6.0.1@sha256:7d776942659eb4d70d8b8da5d734396374a6eda8b4622df9e61e26b24e9c8e40,2501
-- witherable-0.3.1@sha256:ed3d5bc9eb1c08fa9704d9e143cdf622e1bd80b847cd5ede8c07da7bc7981ab9,1313
+- prim-uniq-0.1.0.1@sha256:23f15867b381b49e3f09f69fba318b0ee0e505d5fe0df82f3fcdf3f5c2886291,1201
+- witherable-0.3.5@sha256:6590a15735b50ac14dcc138d4265ff1585d5f3e9d3047d5ebc5abf4cd5f50084,1476
 allow-newer: true
