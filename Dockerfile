@@ -1,4 +1,5 @@
-FROM fpco/stack-build:lts-14.27 as build
+ARG TAG=16.11
+FROM fpco/stack-build:${TAG} as build
 RUN apt-get update && apt-get install -y \
     bbe \
     curl \
