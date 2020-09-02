@@ -1,2 +1,10 @@
+# Creation
 ROOT=/autotool/default
 #PKG_DB=/autotool/default/pkgdb
+# Publication
+USER=root
+GROUP=${USER}
+SSH_USER=${USER}
+SERVER=localhost
+FOLDER=$(dirname ${ROOT})/
+#TARGET=

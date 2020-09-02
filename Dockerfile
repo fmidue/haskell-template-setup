@@ -6,6 +6,7 @@ RUN apt-get update && apt-get install -y \
     rsync
 COPY . /build
 WORKDIR /build
-RUN for i in $(sed 's/#.*$//' env); do export $i; done \
- && make -e build \
+RUN export IFS='#'; for i in $(sed 's/#.*$//' env | tr '\n' '#'); do export $i; done\
+ && unset IFS\
+ && make -e build\
  && make -e install
