@@ -1,4 +1,5 @@
 # Creation
+#IMAGE_TAG=
 ROOT=/autotool/default
 #PKG_DB=/autotool/default/pkgdb
 # Publication
