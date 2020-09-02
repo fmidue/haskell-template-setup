@@ -30,3 +30,5 @@ extra-deps:
 - reflex-0.6.4.1@sha256:43e64b9fe2dd471007173aa1c4e02effcae3cafeb3ea972edf1ea65476cf321d,11192
 - witherable-0.3.5@sha256:6590a15735b50ac14dcc138d4265ff1585d5f3e9d3047d5ebc5abf4cd5f50084,1476
 allow-newer: true
+compiler-check:
+  newer-minor

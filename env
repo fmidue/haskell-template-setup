@@ -1,5 +1,6 @@
 # Creation
 #IMAGE_TAG=
+INSTALL_NEW_GHC=
 ROOT=/autotool/default
 #PKG_DB=/autotool/default/pkgdb
 # Publication
