@@ -7,13 +7,18 @@ define replace_expr
   $(shell test "v$(1)" != "v" && echo 's\#$(1)\#$(2)\#;')
 endef
 define part
-	$(shell sed -n "s/^$(1): \(.*\)$$/\1/p" $(2))
+	$(shell grep "$(1): " $(2) > /dev/null && sed -n "s/^$(1): \(.*\)$$/\1/p" $(2) \
+	  || ( sed -n "/^$(1):$$/,/^$$/p" $(2) | sed -n '2p' ))
 endef
 define dynamic_library
 	$(shell grep "^dynamic-library-dirs: " $(1) > /dev/null \
-	  && test "$$(sed -n 's/^dynamic-library-dirs: \(.*\)$$/\1/p' $(1))" != "$$(sed -n 's/^library-dirs: \(.*\)$$/\1/p' $(1))" \
-	  && find $$(sed -n "s/^dynamic-library-dirs: \(.*\)$$/\1/p" $(1)) \
-		    -mindepth 1 -maxdepth 1 -name "*$$(sed -n 's/id: \(.*\)/\1/p' $(1))*")
+	  && ( test "$$(sed -n 's/^dynamic-library-dirs: \(.*\)$$/\1/p' $(1))" != "$$(sed -n 's/^library-dirs: \(.*\)$$/\1/p' $(1))" \
+	     && find $$(sed -n "s/^dynamic-library-dirs: \(.*\)$$/\1/p" $(1)) \
+	   	    -mindepth 1 -maxdepth 1 -name "*$$(sed -n 's/id: \(.*\)/\1/p' $(1))*")
+	  || grep "^dynamic-library-dirs:" $(1) > /dev/null \
+	  && ( test "$$(sed -n '/^dynamic-library-dirs:$$/,/^$$/p' $(1) | sed -n '2p')" != "$$(sed -n '/^library-dirs:$$/,/^$$/p' $(1) | sed -n '2p')" \
+	     && find $$(sed -n "/^dynamic-library-dirs:$$/,/^$$/p" $(1) | sed -n '2p') \
+	   	    -mindepth 1 -maxdepth 1 -name "*$$(sed -n 's/id: \(.*\)/\1/p' $(1))*"))
 endef
 uniq = $(if $1,$(firstword $1) $(call uniq,$(filter-out $(firstword $1),$1)))
 # CONFIGURABLE HASH
