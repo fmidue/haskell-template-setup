@@ -7,7 +7,7 @@ extra-deps:
   subdirs:
   - embedded
 - git: https://github.com/fmidue/IOTasks
-  commit: 0e81b3791a68a30270ce1852edbf34cb37953e58
+  commit: 42c11197c52cfbbcc58e961fd8c8b6f736768bdd
   subdirs:
   - IOTasks
   - dynamic-environment
