@@ -7,7 +7,7 @@ extra-deps:
   subdirs:
   - embedded
 - git: https://github.com/fmidue/IOTasks
-  commit: 42c11197c52cfbbcc58e961fd8c8b6f736768bdd
+  commit: 021db61be916bfefa5f8e83b5865dd1e90420538
   subdirs:
   - IOTasks
   - dynamic-environment
@@ -20,6 +20,7 @@ extra-deps:
 - constraints-extras-0.3.0.2@sha256:bf6884be65958e9188ae3c9e5547abfd6d201df021bff8a4704c2c4fe1e1ae5b,1784
 - dependent-map-0.3.1.0@sha256:f33391e51264aab38b11d581bb8d2f7c6fc9fcf012bdbb6122708c23b3360b2a,1657
 - dependent-sum-0.6.1
+- holmes-0.3.2.0@sha256:3d4aeb74177bafedc55a9c21be682ad45929490d1d809dec7fe248a503df0290,4597
 - kansas-comet-0.4@sha256:9316474b867e35576816422f71ee9983afc471dfced2f9a67fc1222349b0fee9,1737
 - lazysmallcheck-0.6@sha256:dac7a1e4877681f1260309e863e896674dd6efc1159897b7945893e693f2a6bc,1696
 - monoidal-containers-0.6.0.1@sha256:7d776942659eb4d70d8b8da5d734396374a6eda8b4622df9e61e26b24e9c8e40,2501
