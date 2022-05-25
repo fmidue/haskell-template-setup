@@ -20,6 +20,7 @@ and for publishing:
 | :---------------- | :---------- |
 | `USER`            | the user which will be owner of the package db on the target |
 | `GROUP`           | the group which will be group-owner of the package db on the target |
+| `PORT`            | the ssh port which will be used to transfer the files to the target |
 | `SSH_USER`        | the user which will be used to transfer the files to the target |
 | `SERVER`          | the machine to transfer the files to (its IP or DNS name) |
 | `FOLDER`          | the base folder to place files to, an timestamp will be appended to this path and result in the `TARGET` |
