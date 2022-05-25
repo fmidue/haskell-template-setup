@@ -3,7 +3,7 @@ packages:
 - .
 extra-deps:
 - git: https://github.com/fmidue/haskell-template-task.git
-  commit: c842bba4c2f61c178ee738209c779601cde3f7b9
+  commit: 5f735dded2ab93a834b1ca25279e2d4e30cd3a52
   subdirs:
   - embedded
 - git: https://github.com/fmidue/IOTasks
@@ -12,6 +12,8 @@ extra-deps:
   - IOTasks
   - dynamic-environment
   - transparent-terms
+- git: https://github.com/owestphal/mini-IOTasks
+  commit: 0b93dfed553a027b69aa7ba26d559a3bb77179a1
 - IOSpec-0.3.1.1@sha256:7458ea286386d76af1cd6e5b364914914783cdc7363a4381c795d053be129824,2773
 - codeworld-api-0.7.0@sha256:aff738c6d75acda276d47d0239569b210f76507445e41acc7be2dfdb901b8007,6234
 # required by those:
@@ -29,6 +31,8 @@ extra-deps:
 - prim-uniq-0.1.0.1@sha256:23f15867b381b49e3f09f69fba318b0ee0e505d5fe0df82f3fcdf3f5c2886291,1201
 - reflex-0.8.2.0
 - witherable-0.3.5@sha256:6590a15735b50ac14dcc138d4265ff1585d5f3e9d3047d5ebc5abf4cd5f50084,1476
+- git: https://github.com/IagoAbal/haskell-z3
+  commit: 7e2a3e0977f277b9ed39ad182287317d2b819476
 allow-newer: true
 compiler-check:
   newer-minor
