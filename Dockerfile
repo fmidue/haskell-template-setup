@@ -14,3 +14,5 @@ RUN export IFS='#'; for i in $(sed 's/#.*$//' env | tr '\n' '#'); do export $i; 
  && unset IFS\
  && make -e build\
  && make -e install
+RUN sed -e 's|/root/.stack/programs/.*/rts|/autotool/default/rts|' -e 's|/root/.stack/programs/.*/include|/autotool/default/include|' -i /autotool/default/pkgdb/rts.conf
+RUN bash -c "shopt -s globstar && cp -r /root/.stack/programs/**/rts /autotool/default/ && cp -r /root/.stack/programs/**/include /autotool/default"
