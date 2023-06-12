@@ -15,4 +15,5 @@ RUN export IFS='#'; for i in $(sed 's/#.*$//' env | tr '\n' '#'); do export $i; 
  && make -e build\
  && make -e install
 RUN sed -e 's|/root/.stack/programs/.*/rts|/autotool/default/rts|' -e 's|/root/.stack/programs/.*/include|/autotool/default/include|' -i /autotool/default/pkgdb/rts.conf
-RUN bash -c "shopt -s globstar && cp -r /root/.stack/programs/**/rts /autotool/default/ && cp -r /root/.stack/programs/**/include /autotool/default"
+RUN bash -c "shopt -s globstar && cp -r /root/.stack/programs/**/ghc-*/rts /autotool/default/ && cp -r /root/.stack/**/include /autotool/default"
+RUN stack exec -- ghc-pkg recache --package-db=/autotool/default/pkgdb && stack exec -- ghc-pkg check --package-db=/autotool/default/pkgdb
