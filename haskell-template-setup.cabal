@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.35.2.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: dbd1ec5161c570c32897241159e647462d8b71ef21f9e3341632c874a778afcb
+-- hash: b4595571aaf64082f2c671f8591dbbafce9282c6dbc8b1954c835dbdef12db82
 
 name:           haskell-template-setup
 version:        0.1.0.0
@@ -31,11 +31,12 @@ library
   other-modules:
       Paths_haskell_template_setup
   hs-source-dirs:
-      ./.
+      ./
   build-depends:
       IOSpec
     , IOTasks
     , base >=4.7 && <5
     , codeworld-api
     , haskell-template-task-embedded
+    , mini-IOTasks
   default-language: Haskell2010

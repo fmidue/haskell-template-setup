@@ -1,0 +1,29 @@
+resolver: lts-20.18
+packages:
+  - .
+extra-deps:
+  - git: https://github.com/fmidue/haskell-template-task.git
+    commit: 88833637d9fdb63a24d4e998e552343dd5aa7ce9
+    subdirs:
+      - raw/embedded
+  - git: https://github.com/fmidue/IOTasks
+    commit: cd3fd97976de6368343db1806a296fcae4ff816f
+    subdirs:
+      - IOTasks
+      - dynamic-environment
+      - transparent-terms
+  - git: https://github.com/owestphal/mini-IOTasks
+    commit: aacca6ae36e484fdde8d40357e41fa15188123a9
+  - IOSpec-0.3.1.1@sha256:7458ea286386d76af1cd6e5b364914914783cdc7363a4381c795d053be129824,2773
+  - codeworld-api-0.8.1@sha256:e9ecb782608c20d0f361f9b80b42151c5f22ae1bb97ca93088c908df01753ddc,6234
+# required by those:
+  - commutative-semigroups-0.1.0.1
+  - holmes-0.3.2.0@sha256:3d4aeb74177bafedc55a9c21be682ad45929490d1d809dec7fe248a503df0290,4597
+  - git: https://github.com/IagoAbal/haskell-z3
+    commit: 6368e451e45359563106da7e917f6594453c5161
+  - patch-0.0.8.2
+  - pretty-tree-0.1.0.0
+  - reflex-0.9.0.0
+  - git: https://github.com/owestphal/type-match
+    commit: e5c0d104032d7e6ea147009669cbb95f3291b7bb
+allow-newer: true
