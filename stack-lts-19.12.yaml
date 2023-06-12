@@ -1,4 +1,4 @@
-resolver: lts-17.10
+resolver: lts-19.12
 packages:
 - .
 extra-deps:
@@ -13,26 +13,19 @@ extra-deps:
   - dynamic-environment
   - transparent-terms
 - git: https://github.com/owestphal/mini-IOTasks
-  commit: 0b93dfed553a027b69aa7ba26d559a3bb77179a1
+  commit: 16c7610cad9e5cbe9235d0aaf068c126a826c0fd
 - IOSpec-0.3.1.1@sha256:7458ea286386d76af1cd6e5b364914914783cdc7363a4381c795d053be129824,2773
 - codeworld-api-0.7.0@sha256:aff738c6d75acda276d47d0239569b210f76507445e41acc7be2dfdb901b8007,6234
 # required by those:
-- Stream-0.4.7.2@sha256:ed78165aa34c4e23dc53c9072f8715d414a585037f2145ea0eb2b38300354c53,1009
 - blank-canvas-0.7.3@sha256:575c5e27632ce1e73cdc3bac00c520df4f3eeb400d26121ba30e66814af8234a,5093
-- constraints-extras-0.3.2.1@sha256:90488db4db9ddfe1804805b774cc189bc36ec3d2ac59d751c6078c4a6996036f,1788
-- dependent-map-0.3.1.0@sha256:f33391e51264aab38b11d581bb8d2f7c6fc9fcf012bdbb6122708c23b3360b2a,1657
-- dependent-sum-0.6.1
 - holmes-0.3.2.0@sha256:3d4aeb74177bafedc55a9c21be682ad45929490d1d809dec7fe248a503df0290,4597
 - kansas-comet-0.4.1@sha256:2e266526750834329471b59073a66e1e14ca026cda2774a2fbe67c74c6b3f6a5,2306
-- lazysmallcheck-0.6@sha256:dac7a1e4877681f1260309e863e896674dd6efc1159897b7945893e693f2a6bc,1696
-- monoidal-containers-0.6.0.1@sha256:7d776942659eb4d70d8b8da5d734396374a6eda8b4622df9e61e26b24e9c8e40,2501
-- patch-0.0.5.2@sha256:0840a9f4f2ef620869975574834d9661157df59927bb3f2b0644c21210c75f47,2905
 - pretty-tree-0.1.0.0@sha256:49b0e17008f9d30328db2bcc2958f3a7b78d154d2335c2dbaa2073e237b524ae,668
-- prim-uniq-0.1.0.1@sha256:23f15867b381b49e3f09f69fba318b0ee0e505d5fe0df82f3fcdf3f5c2886291,1201
-- reflex-0.8.2.0
-- witherable-0.3.5@sha256:6590a15735b50ac14dcc138d4265ff1585d5f3e9d3047d5ebc5abf4cd5f50084,1476
+- reflex-0.8.2.1
 - git: https://github.com/IagoAbal/haskell-z3
   commit: 7e2a3e0977f277b9ed39ad182287317d2b819476
+- patch-0.0.7.0@sha256:f2883f0df187ad1134edee323a9b686a2be1c6cc680f6a4f63766422ce585f3d,3099
+- commutative-semigroups-0.1.0.0@sha256:a37e52b43eb806c9a2ee94806f69c9df8cacafe24eecf061b108b59c35d0f880,1157
 allow-newer: true
 compiler-check:
   newer-minor
