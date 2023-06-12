@@ -8,6 +8,7 @@ USER=root
 GROUP=${USER}
 SSH_USER=${USER}
 SERVER=localhost
+JUMP_HOST=
 PORT=22
 FOLDER=$(dirname ${ROOT})/
 #TARGET=
