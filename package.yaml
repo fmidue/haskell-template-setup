@@ -21,7 +21,6 @@ dependencies:
 - codeworld-api
 - IOSpec
 - IOTasks
-- mini-IOTasks
 
 library:
   source-dirs: .

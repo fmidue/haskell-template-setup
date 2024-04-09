@@ -1,25 +1,26 @@
 # Variables which are changeable (via command line or editing) are marked by
 # CONFIGURABLE
 define existing
-	$(shell test -e $(1) && echo $(1))
+$(shell test -e '$(1)' && echo $(1))
 endef
 define replace_expr
-  $(shell test "v$(1)" != "v" && echo 's\#$(1)\#$(2)\#;')
+$(shell test "v$(1)" != "v" && echo 's\#$$$${pkgroot}/../$(3)/x86_64-linux-ghc-9.8.2\#$(2)\#;s\#$(1)\#$(2)\#;')
 endef
 define part
-	$(shell grep "$(1): " $(2) > /dev/null && sed -n "s/^$(1): \(.*\)$$/\1/p" $(2) \
-	  || ( sed -n "/^$(1):$$/,/^$$/p" $(2) | sed -n '2p' ))
+$(abspath $(shell grep "$(1): " $(2) > /dev/null && sed -n "s#\$${pkgroot}#$(abspath $(dir $(abspath $(dir $(2)))))#;s/^$(1): \(.*\)$$/\1/p" $(2)\
+	  || ( sed -n "s#\$${pkgroot}#$(abspath $(dir $(abspath $(dir $(2)))))#;/^$(1):$$/,/^$$/p" $(2) | sed -n '2p' )))
 endef
 define dynamic_library
-	$(shell grep "^dynamic-library-dirs: " $(1) > /dev/null \
+$(abspath $(shell grep "^dynamic-library-dirs: " $(1) > /dev/null \
 	  && ( test "$$(sed -n 's/^dynamic-library-dirs: \(.*\)$$/\1/p' $(1))" != "$$(sed -n 's/^library-dirs: \(.*\)$$/\1/p' $(1))" \
-	     && find $$(sed -n "s/^dynamic-library-dirs: \(.*\)$$/\1/p" $(1)) \
-	   	    -mindepth 1 -maxdepth 1 -name "*$$(sed -n 's/id: \(.*\)/\1/p' $(1))*")
+	     && find "$$(sed -n 's#\$${pkgroot}#$(dir $(abspath $(dir $(1))))#;s/^dynamic-library-dirs: \(.*\)$$/\1/p' $(1) | awk '{$$1=$$1};1')" \
+	   	    -mindepth 1 -maxdepth 1 -name "*$$(sed -n 's/id:[[:space:]]*\(.*\)/\1/p' $(1))*")
 	  || grep "^dynamic-library-dirs:" $(1) > /dev/null \
 	  && ( test "$$(sed -n '/^dynamic-library-dirs:$$/,/^$$/p' $(1) | sed -n '2p')" != "$$(sed -n '/^library-dirs:$$/,/^$$/p' $(1) | sed -n '2p')" \
-	     && find $$(sed -n "/^dynamic-library-dirs:$$/,/^$$/p" $(1) | sed -n '2p') \
-	   	    -mindepth 1 -maxdepth 1 -name "*$$(sed -n 's/id: \(.*\)/\1/p' $(1))*"))
+	     && find "$$(sed -n 's#\$${pkgroot}#$(dir $(abspath $(dir $(1))))#;/^dynamic-library-dirs:$$/,/^$$/p' $(1) | sed -n '2p' | awk '{$$1=$$1};1')" \
+	   	    -mindepth 1 -maxdepth 1 -name "*$$(sed -n 's/id:[[:space:]]*\(.*\)/\1/p' $(1))*")))
 endef
+firstpart=$(call replace_expr,$(abspath $(dir $(firstword $(foreach section,$(1),$(call part,$(section),$(2)))))),$(3),$(4))
 uniq = $(if $1,$(firstword $1) $(call uniq,$(filter-out $(firstword $1),$1)))
 # CONFIGURABLE HASH
 HASH:=$(shell which shasum) -a256
@@ -119,17 +120,17 @@ $(PKG_DB) $(LIB_ROOT) $(DATA_ROOT) $(DOC_ROOT): $(STACK_LOCK)
 
 ifneq (,$(GLOBAL_ROOT))
 $(PKG_DB)/%: $(GLOBAL_PKG_DB)/% $(STACK_LOCK)
-	$(eval $@_import:=$(call replace_expr,$(abspath $(dir $(call part,import-dirs,$<))),$(LIB_ROOT)))
-	$(eval $@_data:=$(call replace_expr,$(abspath $(dir $(call part,data-dir,$<))),$(DATA_ROOT)))
-	$(eval $@_html:=$(call replace_expr,$(abspath $(dir $(call part,haddock-html,$<))),$(DOC_ROOT)))
+	$(eval $@_import:=$(call firstpart,import-dirs library-dirs,$<,$(LIB_ROOT),lib))
+	$(eval $@_data:=$(call firstpart,data-dir,$<,$(DATA_ROOT),share))
+	$(eval $@_html:=$(call firstpart,haddock-html,$<,$(DOC_ROOT),doc))
 	bbe -e '$($@_import)$($@_data)$($@_html)' $< > $@
 endif
 
 ifneq (,$(SNAPSHOT_ROOT))
 $(PKG_DB)/%: $(SNAPSHOT_PKG_DB)/% $(STACK_LOCK)
-	$(eval $@_import:=$(call replace_expr,$(abspath $(dir $(call part,import-dirs,$<))),$(LIB_ROOT)))
-	$(eval $@_data:=$(call replace_expr,$(abspath $(dir $(call part,data-dir,$<))),$(DATA_ROOT)))
-	$(eval $@_html:=$(call replace_expr,$(abspath $(dir $(call part,haddock-html,$<))),$(DOC_ROOT)))
+	$(eval $@_import:=$(call firstpart,import-dirs library-dirs,$<,$(LIB_ROOT),lib))
+	$(eval $@_data:=$(call firstpart,data-dir,$<,$(DATA_ROOT),share))
+	$(eval $@_html:=$(call firstpart,haddock-html,$<,$(DOC_ROOT),doc))
 	bbe -e '$($@_import)$($@_data)$($@_html)' $< > $@
 endif
 

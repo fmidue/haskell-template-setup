@@ -1,3 +1,4 @@
+# syntax=docker.io/docker/dockerfile:1.7-labs
 ARG TAG=20.04
 FROM ubuntu:${TAG} as build
 RUN apt-get update && apt-get install -y \
@@ -14,6 +15,6 @@ RUN export IFS='#'; for i in $(sed 's/#.*$//' env | tr '\n' '#'); do export $i; 
  && unset IFS\
  && make -e build\
  && make -e install
-RUN sed -e 's|/root/.stack/programs/.*/rts|/autotool/default/rts|' -e 's|/root/.stack/programs/.*/include|/autotool/default/include|' -i /autotool/default/pkgdb/rts.conf
-RUN bash -c "shopt -s globstar && cp -r /root/.stack/programs/**/ghc-*/rts /autotool/default/ && cp -r /root/.stack/**/include /autotool/default"
+RUN sed -e 's|/root/.stack/programs/.*/rts|/autotool/default/rts|' -e 's|/root/.stack/programs/.*/include|/autotool/default/include|' -i /autotool/default/pkgdb/rts.conf || true
+RUN bash -c "shopt -s globstar && cp -r /root/.stack/programs/**/ghc-*/rts /autotool/default/ && cp -r /root/.stack/**/include /autotool/default" || true
 RUN stack exec -- ghc-pkg recache --package-db=/autotool/default/pkgdb && stack exec -- ghc-pkg check --package-db=/autotool/default/pkgdb
