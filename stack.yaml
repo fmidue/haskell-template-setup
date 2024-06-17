@@ -3,11 +3,11 @@ packages:
   - .
 extra-deps:
   - git: https://github.com/fmidue/haskell-template-task.git
-    commit: 0d393c806d5fa571e640e277a2e8ce62b6dafdd9
+    commit: 429d079f46e5c6042c523a48b76ab33d662b5b18
     subdirs:
       - raw/embedded
   - git: https://github.com/fmidue/IOTasks
-    commit: 7b7b20a5de511fb0dc33d74b0556dc3356bac933
+    commit: 5732e8de4e8ad2f548cc8f6a02514d4dc7a93700
   - IOSpec-0.3.1.2@sha256:8a5c61b1f0f6bb5b28700e15cbfdba9d90728c96852fc395757e1751962e2084,3012
   - git: https://github.com/fmidue/codeworld-api # codeworld-api-0.8.1 for ghc-9.8
     commit: 69d65d22aba345de845c732a39894554088b963b
