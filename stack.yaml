@@ -21,8 +21,6 @@ extra-deps:
     commit: e1afab43d2e8bfa5e2006492ed34060036e7be51
   - newtype-generics-0.6.2@sha256:81cbf377241a186ac210bb60417ac3a23ea576257b01ec7be7051790b225daeb,2053
   - MemoTrie-0.6.11@sha256:edda47de940a047237c395a85ac3216db6d25888002293853d7eebd01beb5da6,1516
-# used in some IOTasks configurations for memoization:
-  - chimera
 allow-newer: true
 allow-newer-deps:
   - codeworld-api

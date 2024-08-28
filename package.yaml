@@ -21,6 +21,8 @@ dependencies:
 - codeworld-api
 - IOSpec
 - IOTasks
+# used in some IOTasks configurations for memoization:
+- chimera
 
 library:
   source-dirs: .
