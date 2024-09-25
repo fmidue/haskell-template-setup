@@ -1,0 +1,14 @@
+# Variables which are changeable (via command line or editing) are marked by
+# CONFIGURABLE
+STACK_LOCK:=stack.yaml.lock
+# CONFIGURABLE STACK
+STACK:=$(shell which stack)
+# CONFIGURABLE STACK_ROOT
+STACK_ROOT:=$(shell $(STACK) path --stack-root)
+STACK_CALL:=STACK_ROOT=$(STACK_ROOT) $(STACK)
+MAKEFILE:=$(lastword $(MAKEFILE_LIST))
+
+.PHONY: build
+
+build: $(STACK_LOCK)
+	$(STACK_CALL) build .
