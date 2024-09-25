@@ -1,6 +1,6 @@
 # syntax=docker.io/docker/dockerfile:1.7-labs
-ARG TAG=20.04
-FROM ubuntu:${TAG} as build
+ARG IMAGE_TAG=ubuntu:20.04
+FROM ${IMAGE_TAG} as build
 RUN apt-get update && apt-get install -y \
     bbe \
     curl \
