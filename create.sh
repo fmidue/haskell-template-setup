@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 set -e
 source env
-if ! [[ -v RESOLVER ]]
+if ! [[ -v IMAGE_TAG ]]
 then
   IMAGE_TAG=$(sed -n 's/resolver: \(.*\)/\1/p' stack.yaml)
 fi
