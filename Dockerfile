@@ -12,14 +12,15 @@ INSTALL_STACK
 COPY --exclude=Makefile . /build
 WORKDIR /build
 ARG INSTALL_NEW_GHC
+ARG ROOT
 RUN <<INSTALL_PACKAGE
+printf "\nconfigure-options:\n  \$everything:\n  - --datadir=%s" "${ROOT}/share">> stack.yaml
 stack build --dry-run
 ( test -z ${INSTALL_NEW_GHC+x}\
   || rm -rf /home/stackage/.stack/programs/x86_64-linux/ghc-* )
 make -f Makefile.build -e build
 INSTALL_PACKAGE
 ARG PKG_DB
-ARG ROOT
 COPY Makefile /build
 RUN <<MOVE_PKG_DB
 make -e install
