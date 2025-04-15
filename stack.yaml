@@ -2,20 +2,25 @@ resolver: nightly-2024-03-20
 packages:
   - .
 extra-deps:
-  - git: https://github.com/fmidue/haskell-template-task.git
-    commit: 429d079f46e5c6042c523a48b76ab33d662b5b18
+  - git: https://github.com/fmidue/flex-tasks.git
+    commit: cca058b4904e75d69c424fad6dffeff416a775fc
     subdirs:
-      - raw/embedded
-  - git: https://github.com/fmidue/IOTasks
-    commit: ddec953443a6af839bcce2c29f7664ca40e6167c
-  - IOSpec-0.3.1.2@sha256:8a5c61b1f0f6bb5b28700e15cbfdba9d90728c96852fc395757e1751962e2084,3012
-# private repository
-  - git: git@github.com:fmidue/codeworld-tasks.git
-    commit: 17b52d3956fae46b8f1b6287111dfc57d9dece4f
-# required by those:
-  - git: https://github.com/IagoAbal/haskell-z3
-    commit: 6368e451e45359563106da7e917f6594453c5161
-  - git: https://github.com/owestphal/type-match
-    commit: e1afab43d2e8bfa5e2006492ed34060036e7be51
-  - bytestring-trie-0.2.7.6@sha256:5cda922cb8fa5d4eaf2dccbc26bc587593fb202448f0b8844a50e0d2d1aab206,8380
+      - flex-tasks
+      - flex-tasks-processing
+  - git: https://github.com/fmidue/output-blocks.git
+    commit: c8b60a9045a6cc5f1229974701c0d31445543786
+    subdirs:
+      - output-blocks
+  - git: https://github.com/fmidue/logic-tasks.git
+    commit: 381f8cfd97fe860f05a98044789eb86a4137f91a
+  - git: https://github.com/fmidue/term-tasks
+    commit: cb2bfac5e0145c01fbbab7e4f995d624db72dcad
+  - latex-svg-image-0.2@sha256:b282a74a96724037ec3d24b664118e51170c8152aff12f363ddb715a38ef053a,1830
+  - call-alloy-0.5.0.1@sha256:7563481b6a8441d3d03c4cb492b3a73c73f2f96fa00cf273f12092a85433fe41,3927
+  - diagrams-graphviz-1.4.1.1@sha256:36c02a7ff8ac60cf098c73a98abbff1eaa6fa759be42f0c2dcfe8083761b1ec0,1482
+  - git: https://github.com/fmidue/modelling-tasks
+    commit: 380cd29048bf23a7d3eb5c65d1286010f35085e6
+
 allow-newer: true
+allow-newer-deps:
+  - latex-svg-image
