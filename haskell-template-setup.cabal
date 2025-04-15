@@ -36,6 +36,8 @@ library
       IOSpec
     , IOTasks
     , base >=4.7 && <5
+    , chimera
     , codeworld-api
+    , codeworld-tasks
     , haskell-template-task-embedded
   default-language: Haskell2010

@@ -19,6 +19,7 @@ dependencies:
 - base >= 4.7 && < 5
 - haskell-template-task-embedded
 - codeworld-api
+- codeworld-tasks
 - IOSpec
 - IOTasks
 # used in some IOTasks configurations for memoization:
