@@ -1,8 +1,8 @@
 # Creation
 IMAGE_TAG=ubuntu:20.04
 INSTALL_NEW_GHC=
-ROOT=/autotool/default
-#PKG_DB=/autotool/default/pkgdb
+ROOT=/autotool/flex-pkgdb
+#PKG_DB=/autotool/flex-pkgdb/pkgdb
 # Publication
 USER=root
 GROUP=${USER}
