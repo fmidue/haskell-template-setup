@@ -16,14 +16,17 @@ category:            E-Learning
 description:         Please see the README on GitHub at <https://github.com/marcellussiegburg/haskell-template-setup#readme>
 
 dependencies:
-- base >= 4.7 && < 5
-- haskell-template-task-embedded
-- codeworld-tasks
-- IOSpec
-- IOTasks
-- pretty-simple
-# used in some IOTasks configurations for memoization:
-- chimera
+  - base >= 4.7 && < 5
+  - flex-tasks
+  - logic-tasks
+  - output-blocks
+  - parsec
+  - string-interpolate
+  - syb
+  - term-tasks
+  - yesod-form
+  - modelling-tasks
+  - SVGFonts
 
 library:
   source-dirs: .
