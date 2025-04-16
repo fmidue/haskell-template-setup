@@ -3,8 +3,6 @@ cabal-version: 1.12
 -- This file has been generated from package.yaml by hpack version 0.35.2.
 --
 -- see: https://github.com/sol/hpack
---
--- hash: a4f40356362596b1f71f123ec651f50d7bd6c06731a31e7fa27a5e299e97dce4
 
 name:           haskell-template-setup
 version:        0.1.0.0
@@ -37,7 +35,6 @@ library
     , IOTasks
     , base >=4.7 && <5
     , chimera
-    , codeworld-api
     , codeworld-tasks
     , haskell-template-task-embedded
   default-language: Haskell2010
