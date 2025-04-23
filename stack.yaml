@@ -10,7 +10,7 @@ extra-deps:
     commit: 3b33001441a888ae3443def19e516e4c699fb95f
   - IOSpec-0.3.1.2@sha256:8a5c61b1f0f6bb5b28700e15cbfdba9d90728c96852fc395757e1751962e2084,3012
   - git: https://github.com/fmidue/codeworld-tasks
-    commit: 8a9c901bdad006b9bfcc2c26dd2d02831fca9f03
+    commit: 844f625f5e2bcb15bf43941ce50fb278ef224510
 # required by those:
   - git: https://github.com/IagoAbal/haskell-z3
     commit: 6368e451e45359563106da7e917f6594453c5161
