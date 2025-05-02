@@ -1,4 +1,4 @@
-# syntax=docker.io/docker/dockerfile:1.7-labs
+#syntax=docker.io/docker/dockerfile-upstream:1.15.1-labs
 ARG IMAGE_TAG
 FROM ${IMAGE_TAG} as build
 RUN <<INSTALL_STACK
@@ -13,9 +13,12 @@ COPY --exclude=Makefile . /build
 WORKDIR /build
 ARG INSTALL_NEW_GHC
 ARG ROOT
-RUN <<INSTALL_PACKAGE
+RUN <<PREPARE
+mkdir -p -m 0600 ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
 printf "\nconfigure-options:\n  \$everything:\n  - --datadir=%s" "${ROOT}/share">> stack.yaml
-stack build --dry-run
+PREPARE
+RUN --mount=type=ssh stack build --dry-run
+RUN <<INSTALL_PACKAGE
 ( test -z ${INSTALL_NEW_GHC+x}\
   || rm -rf /home/stackage/.stack/programs/x86_64-linux/ghc-* )
 make -f Makefile.build -e build
