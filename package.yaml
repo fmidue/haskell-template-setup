@@ -21,6 +21,7 @@ dependencies:
 - codeworld-tasks
 - IOSpec
 - IOTasks
+- pretty-simple
 # used in some IOTasks configurations for memoization:
 - chimera
 
