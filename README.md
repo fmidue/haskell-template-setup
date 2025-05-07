@@ -30,11 +30,11 @@ Of course the `stack.yaml` and `package.yaml` files may be changed as required a
 
 ## setup
 
-private repositories are accessed using ssh-keys. The script expects a proper setup and will fail if no key is provided.
+private repositories are accessed using ssh keys. The script expects a proper setup and will fail if no key is provided.
 
 * generate an ssh key pair (or use an existing one).
 * deposit your public key as deploy key for your private repositories (if any)
-* make sure you can invoke Docker as the user the ssh keys were generated for ([e.g. using rootless docker]](https://docs.docker.com/engine/security/rootless/))
+* make sure you can invoke Docker as the user the ssh keys were generated for ([e.g. using rootless docker](https://docs.docker.com/engine/security/rootless/))
 
 ## build
 
