@@ -23,18 +23,29 @@ and for publishing:
 | `PORT`            | the ssh port which will be used to transfer the files to the target |
 | `SSH_USER`        | the user which will be used to transfer the files to the target |
 | `SERVER`          | the machine to transfer the files to (its IP or DNS name) |
-| `FOLDER`          | the base folder to place files to, an timestamp will be appended to this path and result in the `TARGET` |
+| `FOLDER`          | the base folder to place files to, a timestamp will be appended to this path and result in the `TARGET` |
 | `TARGET`          | the target folder if no timestamp should be used |
 
 Of course the `stack.yaml` and `package.yaml` files may be changed as required as well.
+
+## setup
+
+private repositories are accessed using ssh-keys. The script expects a proper setup and will fail if no key is provided.
+
+* generate an ssh-key pair (or use an existing one).
+* deposit your public key as deploy key for your private repositories (if any)
+* make sure you can invoke docker as the user the ssh-keys were generated for ([e. g. using rootless docker]](https://docs.docker.com/engine/security/rootless/))
 
 ## build
 
 * after configuring you simply build by calling
 
 ```bash
+eval $(ssh-agent)
+ssh-add
 ./create.sh
 ```
+
 
 ## publish
 
@@ -42,5 +53,7 @@ Of course the `stack.yaml` and `package.yaml` files may be changed as required a
   (you may use it to upload the files to a remote or your local machine).
 
 ```bash
+eval $(ssh-agent)
+ssh-add
 ./publish.sh
 ```
