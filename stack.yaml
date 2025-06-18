@@ -12,7 +12,7 @@ extra-deps:
     subdirs:
       - output-blocks
   - git: https://github.com/fmidue/logic-tasks.git
-    commit: 381f8cfd97fe860f05a98044789eb86a4137f91a
+    commit: 1aa04ecd12116b71b1fa6ad2beb686261dbaa13a
   - git: https://github.com/fmidue/term-tasks
     commit: cb2bfac5e0145c01fbbab7e4f995d624db72dcad
   - latex-svg-image-0.2@sha256:b282a74a96724037ec3d24b664118e51170c8152aff12f363ddb715a38ef053a,1830
@@ -20,6 +20,13 @@ extra-deps:
   - diagrams-graphviz-1.4.1.1@sha256:36c02a7ff8ac60cf098c73a98abbff1eaa6fa759be42f0c2dcfe8083761b1ec0,1482
   - git: https://github.com/fmidue/modelling-tasks
     commit: 380cd29048bf23a7d3eb5c65d1286010f35085e6
+  - git: https://github.com/fmidue/IOTasks
+    commit: 21a9d1f159f3d447ba747036e164d6dc29dbbd73
+  # dependencies for IOTasks
+  - git: https://github.com/IagoAbal/haskell-z3
+    commit: 6368e451e45359563106da7e917f6594453c5161
+  - git: https://github.com/owestphal/type-match
+    commit: e1afab43d2e8bfa5e2006492ed34060036e7be51
 
 allow-newer: true
 allow-newer-deps:
