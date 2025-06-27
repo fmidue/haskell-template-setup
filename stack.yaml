@@ -3,12 +3,12 @@ packages:
   - .
 extra-deps:
   - git: https://github.com/fmidue/flex-tasks.git
-    commit: 6278b26db8a6266ab2141d3152e58eb107c9e168
+    commit: bed7b4b286759dfefba413b8e72fed1ffcaf2475
     subdirs:
       - flex-tasks
       - flex-tasks-processing
   - git: https://github.com/fmidue/output-blocks.git
-    commit: c8b60a9045a6cc5f1229974701c0d31445543786
+    commit: 183ef461d4da8df4c2a249e92bc0b03242c159b9
     subdirs:
       - output-blocks
   - git: https://github.com/fmidue/logic-tasks.git
@@ -16,10 +16,10 @@ extra-deps:
   - git: https://github.com/fmidue/term-tasks
     commit: cb2bfac5e0145c01fbbab7e4f995d624db72dcad
   - latex-svg-image-0.2@sha256:b282a74a96724037ec3d24b664118e51170c8152aff12f363ddb715a38ef053a,1830
-  - call-alloy-0.5.0.1@sha256:7563481b6a8441d3d03c4cb492b3a73c73f2f96fa00cf273f12092a85433fe41,3927
+  - call-alloy-0.6.0.2@sha256:f7ecb0f4b8f7cc804d6d8ace7c323b48e3aa03994a2d09c4b7ee66cc4bf15abd,3850
   - diagrams-graphviz-1.4.1.1@sha256:36c02a7ff8ac60cf098c73a98abbff1eaa6fa759be42f0c2dcfe8083761b1ec0,1482
   - git: https://github.com/fmidue/modelling-tasks
-    commit: 380cd29048bf23a7d3eb5c65d1286010f35085e6
+    commit: ebaff745f6d2a3faaa6821f5eac7c58c0e48ce5e
   - git: https://github.com/fmidue/IOTasks
     commit: 21a9d1f159f3d447ba747036e164d6dc29dbbd73
   # dependencies for IOTasks
