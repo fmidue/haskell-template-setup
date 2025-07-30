@@ -17,7 +17,12 @@ RUN <<PREPARE
 mkdir -p -m 0600 ~/.ssh && ssh-keyscan github.com >> ~/.ssh/known_hosts
 printf "\nconfigure-options:\n  \$everything:\n  - --datadir=%s" "${ROOT}/share">> stack.yaml
 PREPARE
-RUN --mount=type=ssh stack build --dry-run
+RUN --mount=type=ssh <<PULL_DEPS
+  if [ -f ssh-config ]; then
+    command="-F ssh-config"
+  fi
+  GIT_SSH_COMMAND="ssh $command" stack build --dry-run
+PULL_DEPS
 RUN <<INSTALL_PACKAGE
 ( test -z ${INSTALL_NEW_GHC+x}\
   || rm -rf /home/stackage/.stack/programs/x86_64-linux/ghc-* )
