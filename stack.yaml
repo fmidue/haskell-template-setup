@@ -3,7 +3,7 @@ packages:
   - .
 extra-deps:
   - git: https://github.com/fmidue/flex-tasks.git
-    commit: e9020a31da8ad12e95a08859e34f2b6069dfed60
+    commit: 85dc107fc122348bf63d5238a4a4f2f4fd9ec337
     subdirs:
       - flex-tasks
       - flex-tasks-processing
