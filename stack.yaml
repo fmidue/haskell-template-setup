@@ -3,7 +3,7 @@ packages:
   - .
 extra-deps:
   - git: https://github.com/fmidue/flex-tasks.git
-    commit: 85dc107fc122348bf63d5238a4a4f2f4fd9ec337
+    commit: e721993eb170300ff1bad79fc3cc703e09c3a9f9
     subdirs:
       - flex-tasks
       - flex-tasks-processing
@@ -17,7 +17,7 @@ extra-deps:
       - autotool-capabilities
       - autotool-capabilities-io-instances
   - git: https://github.com/fmidue/logic-tasks.git
-    commit: 42980592af56573e26a06580bca7f28b937f8e6d
+    commit: ee417f06c50606a7de98027b5bfd59aafdbd3c88
   - git: https://github.com/fmidue/term-tasks
     commit: aa3aef69faa00c7f44d4d1ea90ba3d68aa918dca
   - latex-svg-image-0.2@sha256:b282a74a96724037ec3d24b664118e51170c8152aff12f363ddb715a38ef053a,1830
