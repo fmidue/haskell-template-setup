@@ -1,5 +1,5 @@
 # Creation
-IMAGE_TAG=ubuntu:20.04
+IMAGE_TAG=ubuntu:24.04
 INSTALL_NEW_GHC=
 ROOT=/autotool/default
 #PKG_DB=/autotool/default/pkgdb
