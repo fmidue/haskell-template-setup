@@ -1,9 +1,9 @@
-resolver: nightly-2024-03-20
+resolver: nightly-2025-10-07
 packages:
   - .
 extra-deps:
   - git: https://github.com/fmidue/flex-tasks.git
-    commit: e721993eb170300ff1bad79fc3cc703e09c3a9f9
+    commit: 7eb2d5ba872ed9c71b48d0630d7c53437aad79b0
     subdirs:
       - flex-tasks
       - flex-tasks-processing
@@ -17,24 +17,20 @@ extra-deps:
       - autotool-capabilities
       - autotool-capabilities-io-instances
   - git: https://github.com/fmidue/logic-tasks.git
-    commit: ee417f06c50606a7de98027b5bfd59aafdbd3c88
+    commit: 18bea0db9fba6133a3c92ecf11ac3068462cc1da
   - git: https://github.com/fmidue/term-tasks
-    commit: aa3aef69faa00c7f44d4d1ea90ba3d68aa918dca
+    commit: 5f851f4c1b80a719f5e5aca2bdbb0d3611ba45c9
   - latex-svg-image-0.2@sha256:b282a74a96724037ec3d24b664118e51170c8152aff12f363ddb715a38ef053a,1830
-  - call-alloy-0.6.0.2@sha256:f7ecb0f4b8f7cc804d6d8ace7c323b48e3aa03994a2d09c4b7ee66cc4bf15abd,3850
+  - call-alloy-0.6.0.3@sha256:429dd2ccff9c6988b7c0b7c550e2f4f8864e4e523502fbc65de1453ad04ebb02,3900
   - diagrams-graphviz-1.4.1.1@sha256:36c02a7ff8ac60cf098c73a98abbff1eaa6fa759be42f0c2dcfe8083761b1ec0,1482
   - git: https://github.com/fmidue/modelling-tasks
-    commit: e84675c522ae4282e3ed82c2e43a030608ff71ff
+    commit: 193c76351af93748d2315626746dad8937eaec54
   - git: https://github.com/fmidue/IOTasks
-    commit: 21a9d1f159f3d447ba747036e164d6dc29dbbd73
+    commit: 7ef09585a8d703a1eb6992dcb0349af5de40cfdc
   # dependencies for IOTasks
   - git: https://github.com/IagoAbal/haskell-z3
     commit: 6368e451e45359563106da7e917f6594453c5161
   - git: https://github.com/owestphal/type-match
     commit: e1afab43d2e8bfa5e2006492ed34060036e7be51
-  # force newest version for bugfix
-  - syb-0.7.3
 
 allow-newer: true
-allow-newer-deps:
-  - latex-svg-image
