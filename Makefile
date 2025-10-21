@@ -4,7 +4,7 @@ define existing
 $(shell test -e '$(1)' && echo $(1))
 endef
 define replace_expr
-$(shell test "v$(1)" != "v" && echo 's\#$$$${pkgroot}/../$(3)/x86_64-linux-ghc-9.8.2\#$(2)\#;s\#$(1)\#$(2)\#;')
+$(shell test "v$(1)" != "v" && echo 's\#\\$$$${pkgroot}/../$(3)/x86_64-linux-ghc-[0-9.a-z-]*\#$(2)\#;s\#$(1)\#$(2)\#;')
 endef
 define part
 $(abspath $(shell grep "$(1): " $(2) > /dev/null && sed -n "s#\$${pkgroot}#$(abspath $(dir $(abspath $(dir $(2)))))#;s/^$(1): \(.*\)$$/\1/p" $(2)\
@@ -123,7 +123,7 @@ $(PKG_DB)/%: $(GLOBAL_PKG_DB)/% $(STACK_LOCK)
 	$(eval $@_import:=$(call firstpart,import-dirs library-dirs,$<,$(LIB_ROOT),lib))
 	$(eval $@_data:=$(call firstpart,data-dir,$<,$(DATA_ROOT),share))
 	$(eval $@_html:=$(call firstpart,haddock-html,$<,$(DOC_ROOT),doc))
-	bbe -e '$($@_import)$($@_data)$($@_html)' $< > $@
+	sed '$($@_import)$($@_data)$($@_html)' $< > $@
 endif
 
 ifneq (,$(SNAPSHOT_ROOT))
@@ -131,7 +131,7 @@ $(PKG_DB)/%: $(SNAPSHOT_PKG_DB)/% $(STACK_LOCK)
 	$(eval $@_import:=$(call firstpart,import-dirs library-dirs,$<,$(LIB_ROOT),lib))
 	$(eval $@_data:=$(call firstpart,data-dir,$<,$(DATA_ROOT),share))
 	$(eval $@_html:=$(call firstpart,haddock-html,$<,$(DOC_ROOT),doc))
-	bbe -e '$($@_import)$($@_data)$($@_html)' $< > $@
+	sed '$($@_import)$($@_data)$($@_html)' $< > $@
 endif
 
 install: build | $(PKG_DB) $(DATA_ROOT) $(LIB_ROOT) $(DOC_ROOT) $(PKG_DB)/package.cache
