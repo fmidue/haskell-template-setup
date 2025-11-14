@@ -17,7 +17,7 @@ extra-deps:
       - autotool-capabilities
       - autotool-capabilities-io-instances
   - git: https://github.com/fmidue/logic-tasks.git
-    commit: 03c4973a443a450d08f2b31792d10f2a521d06ea
+    commit: 9778e1e6a5bc13ec6b48eee331c1148d91e19106
   - git: https://github.com/fmidue/term-tasks
     commit: 5f851f4c1b80a719f5e5aca2bdbb0d3611ba45c9
   - latex-svg-image-0.2@sha256:b282a74a96724037ec3d24b664118e51170c8152aff12f363ddb715a38ef053a,1830
