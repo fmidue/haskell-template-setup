@@ -3,28 +3,27 @@ packages:
   - .
 extra-deps:
   - git: https://github.com/fmidue/flex-tasks.git
-    commit: 1a2ceea284077fbd15e229d34743301850df33fb
+    commit: 14342cad179b3c7e4a440b90941557f730165ed7
     subdirs:
       - flex-tasks
       - flex-tasks-processing
   - git: https://github.com/fmidue/output-blocks.git
-    commit: 77d9867b1d872795064086836e1b0cf24bcfd296
+    commit: d67590cb2e1a72ed72437a8cfe2972b680405569
     subdirs:
       - output-blocks
   - git: https://github.com/fmidue/autotool-capabilities.git
-    commit: 8067088f23759d787c049677a26868df26c1676f
+    commit: c9ea223a41c1852d5e5d7ba35bc4f746c3edb634
     subdirs:
       - autotool-capabilities
       - autotool-capabilities-io-instances
   - git: https://github.com/fmidue/logic-tasks.git
-    commit: bce4891fc630ec2663822d4ef274588bcebcb2ad
+    commit: 4792a5ab808f8c6a54356f0bc4d9c9aaefe040ff
   - git: https://github.com/fmidue/term-tasks
-    commit: 5f851f4c1b80a719f5e5aca2bdbb0d3611ba45c9
+    commit: 2a5eb337fa29082e5d79d8ee63e6930c577c02e0
   - latex-svg-image-0.2@sha256:b282a74a96724037ec3d24b664118e51170c8152aff12f363ddb715a38ef053a,1830
-  - call-alloy-0.6.0.3@sha256:429dd2ccff9c6988b7c0b7c550e2f4f8864e4e523502fbc65de1453ad04ebb02,3900
   - diagrams-graphviz-1.4.1.1@sha256:36c02a7ff8ac60cf098c73a98abbff1eaa6fa759be42f0c2dcfe8083761b1ec0,1482
   - git: https://github.com/fmidue/modelling-tasks
-    commit: 193c76351af93748d2315626746dad8937eaec54
+    commit: 74ca5c510af16e81fd17999752664f3965aaf070
   - git: https://github.com/fmidue/IOTasks
     commit: 7ef09585a8d703a1eb6992dcb0349af5de40cfdc
   # dependencies for IOTasks
@@ -32,5 +31,15 @@ extra-deps:
     commit: 6368e451e45359563106da7e917f6594453c5161
   - git: https://github.com/owestphal/type-match
     commit: e1afab43d2e8bfa5e2006492ed34060036e7be51
+  # for output-blocks
+  - git: https://git.uni-due.de/fmi/autotool-dev.git
+    commit: 849d725e7284e87e077af136ccc3140d824679e8
+    subdirs:
+      - base
+      - data
+      - reader
+      - todoc
+      - transport
+      - util
 
 allow-newer: true

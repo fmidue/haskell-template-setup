@@ -6,6 +6,7 @@ apt-get update && apt-get install -y \
   bbe \
   curl \
   libz3-dev \
+  libssl-dev \
   rsync
 curl -sSL https://get.haskellstack.org/ | sh
 INSTALL_STACK
