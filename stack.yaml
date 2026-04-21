@@ -3,7 +3,7 @@ packages:
   - .
 extra-deps:
   - git: https://github.com/fmidue/flex-tasks.git
-    commit: 14342cad179b3c7e4a440b90941557f730165ed7
+    commit: c519af4453c05c934fec212a8af669af74fbe444
     subdirs:
       - flex-tasks
       - flex-tasks-processing
@@ -12,18 +12,18 @@ extra-deps:
     subdirs:
       - output-blocks
   - git: https://github.com/fmidue/autotool-capabilities.git
-    commit: c9ea223a41c1852d5e5d7ba35bc4f746c3edb634
+    commit: 9001e5040f2a48337359c6d93f600420d17b3dcc
     subdirs:
       - autotool-capabilities
       - autotool-capabilities-io-instances
   - git: https://github.com/fmidue/logic-tasks.git
-    commit: 4792a5ab808f8c6a54356f0bc4d9c9aaefe040ff
+    commit: af94e0ba22ffd4e679bdd19f0da31ee60a7784f1
   - git: https://github.com/fmidue/term-tasks
-    commit: 2a5eb337fa29082e5d79d8ee63e6930c577c02e0
+    commit: e689627e43c800e7da4b440de6ab6aae07c4ec44
   - latex-svg-image-0.2@sha256:b282a74a96724037ec3d24b664118e51170c8152aff12f363ddb715a38ef053a,1830
   - diagrams-graphviz-1.4.1.1@sha256:36c02a7ff8ac60cf098c73a98abbff1eaa6fa759be42f0c2dcfe8083761b1ec0,1482
   - git: https://github.com/fmidue/modelling-tasks
-    commit: 74ca5c510af16e81fd17999752664f3965aaf070
+    commit: 145b36f7bcbfc4d4cc57b5be5eb81854b7b95069
   - git: https://github.com/fmidue/IOTasks
     commit: 7ef09585a8d703a1eb6992dcb0349af5de40cfdc
   # dependencies for IOTasks
