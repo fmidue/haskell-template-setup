@@ -19,7 +19,7 @@ extra-deps:
   - git: https://github.com/fmidue/logic-tasks.git
     commit: af94e0ba22ffd4e679bdd19f0da31ee60a7784f1
   - git: https://github.com/fmidue/term-tasks
-    commit: e689627e43c800e7da4b440de6ab6aae07c4ec44
+    commit: 2a5eb337fa29082e5d79d8ee63e6930c577c02e0
   - latex-svg-image-0.2@sha256:b282a74a96724037ec3d24b664118e51170c8152aff12f363ddb715a38ef053a,1830
   - diagrams-graphviz-1.4.1.1@sha256:36c02a7ff8ac60cf098c73a98abbff1eaa6fa759be42f0c2dcfe8083761b1ec0,1482
   - git: https://github.com/fmidue/modelling-tasks
