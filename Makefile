@@ -38,7 +38,7 @@ LIB_ROOT:=$(ROOT)/lib
 DOC_ROOT:=$(ROOT)/doc
 DATA_ROOT:=$(ROOT)/share
 # CONFIGURABLE RELOCATE_BINARY_PATHS
-RELOCATE_BINARY_PATHS:=/build/relocate-binary-data-paths.sh
+RELOCATE_BINARY_PATHS?=$(dir $(abspath $(lastword $(MAKEFILE_LIST))))relocate-binary-data-paths.sh
 # CONFIGURABLE PKG_DB
 PKG_DB:=$(ROOT)/pkgdb
 STACK_CALL:=STACK_ROOT=$(STACK_ROOT) $(STACK)
@@ -146,7 +146,7 @@ relocate-binary-data-paths: $(TARGET_LIB_DIRS) $(TARGET_DATA_DIRS)
 	  test -n "$$old" || continue; \
 	  printf '%s\t%s\n' "$$old" "$(DATA_ROOT)/$$(basename "$$old")" >> "$$tmp"; \
 	done; \
-	$(RELOCATE_BINARY_PATHS) "$$tmp" "$(LIB_ROOT)"
+	$(SHELL) "$(RELOCATE_BINARY_PATHS)" "$$tmp" "$(LIB_ROOT)"
 
 $(PKG_DB)/package.cache: $(STACK_LOCK) $(TARGET_DIRS) $(PKG_DB_FILES)
 	$(GHC_PKG) recache --package-db=$(PKG_DB)
