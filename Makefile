@@ -37,6 +37,8 @@ ROOT:=/tmp/foo
 LIB_ROOT:=$(ROOT)/lib
 DOC_ROOT:=$(ROOT)/doc
 DATA_ROOT:=$(ROOT)/share
+# CONFIGURABLE RELOCATE_BINARY_PATHS
+RELOCATE_BINARY_PATHS:=/build/relocate-binary-data-paths.sh
 # CONFIGURABLE PKG_DB
 PKG_DB:=$(ROOT)/pkgdb
 STACK_CALL:=STACK_ROOT=$(STACK_ROOT) $(STACK)
@@ -134,7 +136,17 @@ $(PKG_DB)/%: $(SNAPSHOT_PKG_DB)/% $(STACK_LOCK)
 	sed '$($@_import)$($@_data)$($@_html)' $< > $@
 endif
 
-install: build | $(PKG_DB) $(DATA_ROOT) $(LIB_ROOT) $(DOC_ROOT) $(PKG_DB)/package.cache
+install: build | $(PKG_DB) $(DATA_ROOT) $(LIB_ROOT) $(DOC_ROOT) $(PKG_DB)/package.cache relocate-binary-data-paths
+
+.PHONY: relocate-binary-data-paths
+relocate-binary-data-paths: $(TARGET_LIB_DIRS) $(TARGET_DATA_DIRS)
+	@tmp="$$(mktemp)"; \
+	trap 'rm -f "$$tmp"' EXIT; \
+	for old in $(DATA_DIRS); do \
+	  test -n "$$old" || continue; \
+	  printf '%s\t%s\n' "$$old" "$(DATA_ROOT)/$$(basename "$$old")" >> "$$tmp"; \
+	done; \
+	$(RELOCATE_BINARY_PATHS) "$$tmp" "$(LIB_ROOT)"
 
 $(PKG_DB)/package.cache: $(STACK_LOCK) $(TARGET_DIRS) $(PKG_DB_FILES)
 	$(GHC_PKG) recache --package-db=$(PKG_DB)
