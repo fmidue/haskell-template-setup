@@ -12,9 +12,7 @@ set -eu
 #
 # REWRITE_MAP is tab-separated: OLD_PATH<TAB>NEW_PATH, one rewrite per line.
 # Replacement strings are kept exactly the same byte length. When NEW_PATH is
-# shorter, it is padded with harmless directory components such as /, /., /./.
-# This avoids changing binary file sizes and avoids NUL padding, which is safer
-# for both C strings and length-prefixed literals.
+# shorter, it is padded to preserve the length.
 
 export LC_ALL=C
 
@@ -41,7 +39,7 @@ pad_to_old_length() {
 new path is longer than old path; cannot patch safely:
   old ($old_len): $old
   new ($new_len): $new
-Use a shorter ROOT/PKG_DB export path or rebuild the package with a relocatable prefix.
+Use a shorter ROOT/PKG_DB export path.
 ERR
     exit 1
   fi
