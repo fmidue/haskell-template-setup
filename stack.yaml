@@ -23,7 +23,7 @@ extra-deps:
   - latex-svg-image-0.2@sha256:b282a74a96724037ec3d24b664118e51170c8152aff12f363ddb715a38ef053a,1830
   - diagrams-graphviz-1.4.1.1@sha256:36c02a7ff8ac60cf098c73a98abbff1eaa6fa759be42f0c2dcfe8083761b1ec0,1482
   - git: https://github.com/fmidue/modelling-tasks
-    commit: 65f74c277f9fa927e337afc4a3d98229286b083b
+    commit: 50418d835326892f8646c7ca705e80acb505ed2a
   - git: https://github.com/fmidue/IOTasks
     commit: 7ef09585a8d703a1eb6992dcb0349af5de40cfdc
   # dependencies for IOTasks
